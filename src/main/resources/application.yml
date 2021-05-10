@@ -1,0 +1,36 @@
+server:
+  port: 800
+
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:mysql://118.190.147.84:3306/mp-demo
+    username: root
+    password: { MYSQL_PASSWD }
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: DatebookHikariCP
+      minimum-idle: 1
+      maximum-pool-size: 10
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  output:
+    ansi:
+      enabled: always
+
+mybatis-plus:
+  mapper-locations: classpath*:/com/github/wanggaolei2019/mpdemo/mapper/*Mapper.xml
+
+logging:
+  level:
+    ROOT: warn
+    com.github.wanggaolei2019: info
+
